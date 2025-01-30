@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github-user-settings</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <img src="img/github.svg" class="logo" alt="GitHub Logo">
+            <div class="search-bar-container">
+                <input type="text" placeholder="Search or jump to..." class="search-bar">
+                <div class="slash-icon">/</div>
+            </div>
+            <div class="menu">
+                <span id="first"><a href="./pullRequest.html">Pull Requests</a></span>
+                <span id="sec">Issues</span>
+                <span>Codespaces</span>
+                <span>Marketplace</span>
+                <span>Explore</span>
+            </div>
+            <div class="actions">
+                <div class="icon">
+                    <img src="img/bell-icon.svg" alt="Notifications">
+                </div>
+                <div class="icon">
+                    <img src="img/add1-icon.svg" alt="Add" >
+                </div>
+                <div class="icon">
+                    <img src="img/Avatar1.svg" alt="Profile">
+                </div>
+            </div>            
+        </div>
+    </nav>    
+    <div class="container">
+        <div class="header">
+            <img src="img/Avatar.svg" alt="">
+            <div class="profile-detail">
+                <h3>Peter Griffin</h3>
+                <p>Your personal account</p>
+            </div>
+            <div class="go_to_your_personal_profile">
+                Go to your personal profile
+            </div>
+        </div>
+        <div class="page-container">
+            <div class="left-container">
+                <ul>
+                    <li class="public-icon"><a href="#"><img src="img/public-icon.svg" alt="">   Public profile</a></li>
+                    <li><a href="#"><img src="img/account-icon.svg" alt=""> Account</a></li>
+                    <li><a href="#"><img src="img/appearance-icon.svg" alt="">  Appearance</a></li>
+                    <li><a href="#"><img src="img/accessibility-icon.svg" alt="">  Accessibility</a></li>
+                    <li><a href="#"><img src="img/notification-icon.svg" alt="">  Notifications</a></li>
+                    <li><a href="#"><img src="img/account-icon.svg" alt="">  Security</a></li>
+                </ul>
+                <br>
+                <p style="color: #57606A; padding-left:10px;">Access</p>
+                <ul>
+                    <!-- <li class="public-icon"><a href="#"><img src="img/public-icon.svg" alt="">   Public profile</a></li> -->
+                    <li><a href="#"><img src="img/account-icon.svg" alt=""> Account</a></li>
+                    <li><a href="#"><img src="img/appearance-icon.svg" alt="">  Appearance</a></li>
+                    <li><a href="#"><img src="img/accessibility-icon.svg" alt="">  Accessibility</a></li>
+                    <li><a href="#"><img src="img/notification-icon.svg" alt="">  Notifications</a></li>
+                    <li><a href="#"><img src="img/account-icon.svg" alt="">  Security</a></li>
+                </ul>
+            </div>
+            <div class="right-container">
+                <div class="top-container">
+                    <div class="left">
+                        <h2 class="left-heading">Public Profile</h2>
+                        <form>
+                            <div class="form-group">
+                                <label class="name">Name</label>
+                                <input placeholder="Peter Griffin" type="text" />
+                                <p>Your name may appear around GitHub where you contribute or are mentioned. You can remove it at any time.</p>
+                            </div>
+                            <div class="form-group">
+                                <label class="name">Public email</label>
+                                <input placeholder="Select a verified email to display" type="email" />
+                                <p>You have set your email address to private.To toggle email privacy,go to email settings and uncheck "Keep my email address private."</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Bio</label>
+                                <input type="text" placeholder="Tell us a little about yourself" />
+                                <p>You can <span>@mention</span> other users and organizations to link to them.</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Pronouns</label>
+                                <input type="text" placeholder="Don't specify" />
+                            </div>
+                            <div class="form-group">
+                                <label>URL</label>
+                                <input type="url" placeholder="" />
+                            </div>
+                            <div class="form-group">
+                                <label>Social accounts</label>
+                                <div class="wrapper">
+                                <img src="img/link.svg" />
+                                <input type="url" placeholder="Link to social profile" />
+                               </div> 
+                               <div class="wrapper">
+                                <img src="img/link.svg" />
+                                <input type="url" placeholder="Link to social profile" />
+                               </div> 
+                               <div class="wrapper">
+                                <img src="img/link.svg" />
+                               <input type="url" placeholder="Link to social profile" />
+                               </div> 
+                               <div class="wrapper">
+                                <img src="img/link.svg" />
+                               <input type="url" placeholder="Link to social profile" />
+                            </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Company</label>
+                                <input type="text" />
+                                <p>You can <span>@mention</span> your company’s GitHub organization to link it.</p>
+                                <div class="line"></div>
+                            </div>
+                            <div class="form-group">
+                                <label>Location</label>
+                                <input type="text"  placeholder="Dubuque,Iowa " />
+                            <div class="wrapper">
+                                <input type="checkbox" id="toggleTime" class="checkbox"/>
+                                <label for="toggleTime"class="heading">Display current local time</label>
+                            </div>
+                                <p>All of the fields on this page are optional and can be deleted at any time, and by filling them out, you're giving us consent to share this data wherever your user profile appears. Please see our <a href="#">privacy statement</a> to learn more about how we use this information.</p>
+                                <button class="update-button" type="submit">Update profile</button>
+                            </div>
+
+                            <br><br>
+                        </form>     
+                        <div class="bottom-container">
+                            <div class="container">
+                                <h2>Contributions & Activity</h2>
+                                <div class="section">
+                                  <label>
+                                    <input type="checkbox"> Make profile private and hide activity
+                                  </label>
+                                  <p>Enabling this will hide your contributions and activity from your GitHub profile and from social features like followers, stars, feeds, leaderboards and releases.</p>
+                                  <br>
+                                  <label>
+                                    <input type="checkbox"> Include private contributions on my profile
+                                  </label>
+                                  <p>Your contribution graph, achievements, and activity overview will show your private contributions without revealing any repository or organization information. <span class="sp1">Read more.</span></p>
+                                  <br>
+                                  <button>Update preferences</button>
+                                </div>
+                                <br>
+                                <h2>Profile Settings</h2>
+                                <div class="section">
+                                  <label>
+                                    <input type="checkbox"> Show Achievements on my profile
+                                  </label>
+                                  <button>Update preferences</button>
+                                </div>
+                                <br>
+                                <h2>GitHub Developer Program</h2>
+                                <div class="section">
+                                  <p>Building an application, service, or tool that integrates with GitHub? <span class="sp1">Join the GitHub Developer Program</span>, or read more about it at our <span class="sp1">Developer site</span>.</p>
+                                </div>
+                                 <br>
+                                <h2>Jobs Profile</h2>
+                                <div class="section">
+                                  <label>
+                                    <input type="checkbox"> Available for hire
+                                  </label>
+                                  <button>Save jobs profile</button>
+                                </div>
+                                <br>
+                                <h2>Trending Settings</h2>
+                                <div class="section">
+                                  <label for="language">Preferred spoken language</label>
+                                  <select id="language">
+                                    <option value="none">No Preference</option>
+                                    <option value="english">English</option>
+                                    <option value="spanish">Spanish</option>
+                                    <option value="french">French</option>
+                                  </select>
+                                  <br>
+                                  <br>
+                                  <p>Your contribution graph, achievements, and activity overview will show your private contributions without revealing any repository or organization information. <span class="sp1">Read more.</span></p>
+                                  <button>Save Trending settings</button>
+                                </div>
+                              </div>
+                        </div>              
+                    </div>
+                    <div class="right">
+                            <div class="right-heading">Profile picture</div>
+                            <div class="profile-picture">
+                                <img alt="profile-picture" src="img/Profile Picture.svg" />
+                                <button class="edit" onclick="openNewTab()">
+                                    <div class="wrapper-1">
+                                      <img src="img/Edit Button.svg" />
+                                      <div>Edit</div>
+                                    </div>
+                                  </button>                                  
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Update Profile Button
+            const updateProfileButton = document.querySelector(".update-button");
+            updateProfileButton.addEventListener("click", (event) => {
+                event.preventDefault();
+                alert("Profile updated successfully!");
+            });
+        
+            // Update Preferences Buttons
+            const updatePreferencesButtons = document.querySelectorAll("button");
+            updatePreferencesButtons.forEach((button) => {
+                if (button.textContent === "Update preferences" || button.textContent === "Save jobs profile" || button.textContent === "Save Trending settings") {
+                    button.addEventListener("click", (event) => {
+                        event.preventDefault();
+                        alert(`${button.textContent} clicked!`);
+                    });
+                }
+            });
+        
+            // Language Selection
+            const languageSelect = document.getElementById("language");
+            languageSelect.addEventListener("change", (event) => {
+                console.log(`Selected language: ${event.target.value}`);
+            });
+        
+            // Profile Privacy Checkbox
+            const makeProfilePrivateCheckbox = document.querySelector('input[type="checkbox"][value="Make profile private and hide activity"]');
+            if (makeProfilePrivateCheckbox) {
+                makeProfilePrivateCheckbox.addEventListener("change", (event) => {
+                    if (event.target.checked) {
+                        alert("Profile is now private.");
+                    } else {
+                        alert("Profile is now public.");
+                    }
+                });
+            }
+        
+            // Private Contributions Checkbox
+            const privateContributionsCheckbox = document.querySelector('input[type="checkbox"][value="Include private contributions on my profile"]');
+            if (privateContributionsCheckbox) {
+                privateContributionsCheckbox.addEventListener("change", (event) => {
+                    if (event.target.checked) {
+                        alert("Private contributions will now be displayed.");
+                    } else {
+                        alert("Private contributions will no longer be displayed.");
+                    }
+                });
+            }
+        
+            // Available for Hire Checkbox
+            const availableForHireCheckbox = document.querySelector('input[type="checkbox"][value="Available for hire"]');
+            if (availableForHireCheckbox) {
+                availableForHireCheckbox.addEventListener("change", (event) => {
+                    if (event.target.checked) {
+                        alert("Marked as available for hire.");
+                    } else {
+                        alert("You are no longer available for hire.");
+                    }
+                });
+            }
+        
+            // Profile Picture Edit Button
+            const editProfilePictureButton = document.querySelector(".profile-picture .edit");
+            if (editProfilePictureButton) {
+                editProfilePictureButton.addEventListener("click", () => {
+                    window.open('cardflip.html', '_blank');
+                });
+            }
+        });
+        document.getElementById('sec').onclick = function(){
+            document.getElementById('first').style.display = 'none';
+            location.href="./issues.html";
+        }
+      </script>
+      
+</body>
+</html>
