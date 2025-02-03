@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .iframe{
+            background-color:greenyellow;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    
+<div>
+    <canvas id="myChart"></canvas>
+    <iframe class="iframe" src="https://cdn.jsdelivr.net/npm/chart.js" frameborder="500" height="600" width="850"></iframe>
+  </div>
+    
+  <script>
+    const url = "https://cdn.jsdelivr.net/npm/chart.js";
+    
+    function loadScript(src, callback) {
+      var script = document.createElement("script");
+      script.src = src;
+      script.onload = script.onreadystatechange = callback;
+      document.body.appendChild(script);
+
+  }
+
+  loadScript('https://cdn.jsdelivr.net/npm/chart.js', function () {
+    const ctx = document.getElementById('myChart');
+
+          new Chart(ctx, {
+              type: 'bar',
+              data: {
+                  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                  datasets: [{
+                      label: '# of Votes',
+                      dyata: [12, 19, 3, 5, 2, 3],
+                      borderWidth: 1
+                  }]
+              },
+              options: {
+                  scales: {
+                      y: {
+                          beginAtZero: true
+                      }
+                  }
+              }
+          });
+      });
+  </script>
+</body>
+</html>
