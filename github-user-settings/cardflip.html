@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale = 1">
+    <title>CSS Card Flip</title>
+    <style>
+    body{
+    background: #3C5377;
+    }
+
+/* THE MAINCONTAINER HOLDS EVERYTHING */
+.maincontainer{
+  position: absolute;
+  width: 250px;
+  height: 320px;
+  background: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+/* THE CARD HOLDS THE FRONT AND BACK FACES */
+.thecard{
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  transform-style: preserve-3d;
+  transition: all 0.8s ease;
+}
+
+/* THE PSUEDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
+.thecard:hover{
+  transform: rotateY(180deg);
+}
+
+/* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT */
+ .thefront{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  overflow: hidden;
+  background: #ffc728;
+  color: #000;
+}
+
+/* THE BACK FACE OF THE CARD, WHICH SHOWS ON MOUSEOVER */
+.theback{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  overflow: hidden;
+  background: #fafafa;
+  color: #333;
+  text-align: center;
+  transform: rotateY(180deg);
+}
+
+
+/*This block (starts here) is merely styling for the flip card, and is NOT an essential part of the flip code */
+.thefront h1, .theback h1{
+  font-family: 'zilla slab', sans-serif;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+}
+
+.thefront p, .theback p{
+  font-family: 'zilla slab', sans-serif;
+  padding: 30px;
+  font-weight: normal;
+  font-size: 12px;
+  text-align: center;
+}
+/*This block (ends here) is merely styling for the flip card, and is NOT an essential part of the flip code */
+    </style>
+  </head>
+
+  <body>
+    <div class="maincontainer">
+
+      <div class="thecard">
+
+        <div class="thefront"><h1>Front of Card</h1><p>This is the front of the card. @Reckonsys</p></div>
+
+        <div class="theback"><h1>Back of Card</h1><p>@Reckonsys</p>
+        <button>Submit</button></div>
+
+      </div>
+    </div>
+
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container-2 {
+        display: flex;
+        visibility: hidden;
+        flex-direction: column;
+      }
+    </style>
+
+
+    <script>
+      // Fetch students from localStorage
+      function getStudentJSON() {
+        return JSON.parse(localStorage.getItem("student")) || [];
+      }
+    
+      // Update the table display
+      function getTable() {
+        const student = getStudentJSON();
+        const tableBody = document.getElementById("table-body");
+        tableBody.innerHTML = ''; 
+        student.forEach((student, index) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `<th scope="row">${student.id}</th>
+                           <td>${student.firstName}</td>
+                           <td>${student.lastName}</td>
+                           <td>${student.handle}</td>
+                           <td><button class="edit" onclick="edit(${index})">Edit</button></td>`; // Edit button for each row
+          tableBody.appendChild(row);
+        });
+      }
+    
+      // Load the student's data into the form for editing
+      function edit(index) {
+        const student = getStudentJSON();
+        const editStudent = student[index];
+    
+        // Populate the form fields with the student's data
+        document.querySelector(".id").value = editStudent.id; // ID is read-only and cannot be changed
+        document.querySelector(".fName").value = editStudent.firstName;
+        document.querySelector(".lName").value = editStudent.lastName;
+        document.querySelector(".handle").value = editStudent.handle;
+    
+        // Switch to the form container for editing
+        hideContainer();
+      }
+    
+      // Update the student data (except for ID)
+      function update() {
+        const student = getStudentJSON();
+        const id = document.querySelector(".id").value;
+        const firstName = document.querySelector(".fName").value;
+        const lastName = document.querySelector(".lName").value;
+        const handle = document.querySelector(".handle").value;
+    
+        // Find the student by ID and update the values
+        const updatedStudent = {
+          id: id,  // ID remains unchanged
+          firstName: firstName,
+          lastName: lastName,
+          handle: handle
+        };
+    
+        const index = student.findIndex(s => s.id === id);
+        if (index !== -1) {
+          student[index] = updatedStudent;  // Update the student at the found index
+        }
+    
+        localStorage.setItem("student", JSON.stringify(student));
+    
+        // Clear the form fields after update
+        document.querySelector(".id").value = '';
+        document.querySelector(".fName").value = '';
+        document.querySelector(".lName").value = '';
+        document.querySelector(".handle").value = '';
+    
+        // Reload the table and switch back to it
+        getTable();
+        showContainer();
+      }
+    
+      // Hide container-1 (table) and show container-2 (form)
+      function hideContainer() {
+        document.querySelector(".container-1").style.visibility = "hidden";
+        document.querySelector(".container-2").style.visibility = "visible";
+      }
+    
+      // Show container-1 (table) and hide container-2 (form)
+      function showContainer() {
+        document.querySelector(".container-1").style.visibility = "visible";
+        document.querySelector(".container-2").style.visibility = "hidden";
+      }
+    
+      // Initialize the table when the page loads
+      getTable();
+    </script>
+    <script>
+      function getStudentJSON() {
+        return JSON.parse(localStorage.getItem("student")) || [];
+      }
+    
+      function getTable() {
+        const student = getStudentJSON();
+        const tableBody = document.getElementById("table-body");
+        tableBody.innerHTML = ''; // Clear the table body first
+        student.forEach((student, index) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <th scope="row">${student.id}</th>
+            <td>${student.firstName}</td>
+            <td>${student.lastName}</td>
+            <td>${student.handle}</td>
+            <td><button class="edit" onclick="edit('${student.id}')">Edit</button></td>`;
+          tableBody.appendChild(row);
+        });
+      }
+    
+      function update() {
+        const student = getStudentJSON();
+        const id = document.querySelector(".id").value;
+        const firstName = document.querySelector(".fName").value;
+        const lastName = document.querySelector(".lName").value;
+        const handle = document.querySelector(".handle").value;
+    
+        const newStudent = {
+          id: id,
+          firstName: firstName,
+          lastName: lastName,
+          handle: handle,
+        };
+    
+        // Update or add new student
+        const existingIndex = student.findIndex(s => s.id === id);
+        if (existingIndex >= 0) {
+          student[existingIndex] = newStudent; // Update existing student
+        } else {
+          student.push(newStudent); // Add new student
+        }
+    
+        localStorage.setItem("student", JSON.stringify(student));
+    
+        document.querySelector(".id").value = '';
+        document.querySelector(".fName").value = '';
+        document.querySelector(".lName").value = '';
+        document.querySelector(".handle").value = '';
+    
+        getTable(); // Refresh the table
+      }
+    
+      function edit(id) {
+        const student = getStudentJSON();
+        const editStudent = student.find(s => s.id === id);
+    
+        if (editStudent) {
+          document.querySelector(".id").value = editStudent.id;
+          document.querySelector(".fName").value = editStudent.firstName;
+          document.querySelector(".lName").value = editStudent.lastName;
+          document.querySelector(".handle").value = editStudent.handle;
+          hideContainer();
+        } else {
+          alert("Student not found");
+        }
+      }
+    
+      function hideContainer() {
+        document.querySelector(".container-1").style.visibility = "hidden";
+        document.querySelector(".container-2").style.visibility = "visible";
+      }
+    
+      function showContainer() {
+        document.querySelector(".container-1").style.visibility = "visible";
+        document.querySelector(".container-2").style.visibility = "hidden";
+      }
+    
+      // Load the table on page load
+      getTable();
+    </script>
+    
+
+    <script>
+      // Initialize localStorage if no students exist
+      if (!localStorage.getItem('student')) {
+        localStorage.setItem('student', JSON.stringify([]));
+      }
+
+      // Fetch students from localStorage
+      function getStudentJSON() {
+        return JSON.parse(localStorage.getItem("student"));
+      }
+
+      // Update the table with students from localStorage
+      function getTable() {
+        const student = getStudentJSON();
+        const tableBody = document.getElementById("table-body");
+        tableBody.innerHTML = ''; 
+        student.forEach((student) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <th scope="row">${student.id}</th>
+            <td>${student.firstName}</td>
+            <td>${student.lastName}</td>
+            <td>${student.handle}</td>
+            <td><button class="edit" onclick="edit('${student.id}')">Edit</button></td>`;
+          tableBody.appendChild(row);
+        });
+      }
+
+      // Handle update or add a new student
+      function update() {
+        const student = getStudentJSON();
+        const id = document.querySelector(".id").value;
+        const firstName = document.querySelector(".fName").value;
+        const lastName = document.querySelector(".lName").value;
+        const handle = document.querySelector(".handle").value;
+
+        const newStudent = {
+          id: id,
+          firstName: firstName,
+          lastName: lastName,
+          handle: handle,
+        };
+
+        // Check if the student exists
+        const existingIndex = student.findIndex(s => s.id === id);
+        if (existingIndex >= 0) {
+          student[existingIndex] = newStudent; // Update existing student
+        } else {
+          student.push(newStudent); // Add new student
+        }
+
+        // Save updated students to localStorage
+        localStorage.setItem("student", JSON.stringify(student));
+
+        // Reset form
+        document.querySelector(".id").value = '';
+        document.querySelector(".fName").value = '';
+        document.querySelector(".lName").value = '';
+        document.querySelector(".handle").value = '';
+
+        getTable();
+        showTable();
+      }
+
+      // Edit a student and populate form
+      function edit(id) {
+        const student = getStudentJSON();
+        const editStudent = student.find(s => s.id === id);
+    
+        if (editStudent) {
+          document.querySelector(".id").value = editStudent.id;
+          document.querySelector(".fName").value = editStudent.firstName;
+          document.querySelector(".lName").value = editStudent.lastName;
+          document.querySelector(".handle").value = editStudent.handle;
+          showForm();
+        }
+      }
+
+      // Show the form container
+      function showForm() {
+        document.querySelector(".container-1").style.visibility = "hidden";
+        document.querySelector(".container-2").style.visibility = "visible";
+      }
+
+      // Show the table container
+      function showTable() {
+        document.querySelector(".container-1").style.visibility = "visible";
+        document.querySelector(".container-2").style.visibility = "hidden";
+      }
+
+      // Initialize table
+      getTable();
+    </script>

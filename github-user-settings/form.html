@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
+    <title>GitHub Profile Settings</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="profile-brief">
+                <div class="avatar">
+                    <img src="C:\Users\tessa\OneDrive\Documents\MDS\FSWD\social-icons\Avatar.svg">
+                    </div>
+                <div class="profile-info">
+                    <h3>Peter Griffin</h3>
+                    <p>Your personal account</p>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">
+                    <i class="icon"></i> Public profile
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="icon"></i> Account
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="icon"></i> Appearance
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="icon"></i> Accessibility
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="icon"></i> Notifications
+                </a>
+                
+                <div class="nav-section">
+                    <h4>Access</h4>
+                    <a href="#" class="nav-item">
+                        <i class="icon"></i> Billing and plans
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="icon"></i> Emails
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="icon"></i> Password and authentication
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="icon"></i> Sessions
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="icon"></i> SSH and GPG keys
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="icon"></i> Organizations
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="icon"></i> Moderation
+                    </a>
+                </div>
+            </nav>
+        </div>
+
+        <main class="main-content">
+            <div class="header-actions">
+                <button class="btn-secondary">Go to your personal profile</button>
+            </div>
+
+           
+            <h2>Public profile</h2>
+     
+
+            <div class="profile-grid">
+                <div class="profile-form">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" value="Peter Griffin" />
+                        <p class="help-text">Your name may appear around GitHub where you contribute or are mentioned. You can remove it at any time.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Public email</label>
+                        <select>
+                            <option>Select a verified email to display</option>
+                        </select>
+                        <p class="help-text">You have set your email address to private. To toggle email privacy, go to email settings and uncheck "Keep my email address private."</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Bio</label>
+                        <textarea placeholder="Tell us a little bit about yourself" style="font-family: Noto Sans"></textarea>
+                        <p class="help-text">You can @mention other users and organizations to link to them.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Pronouns</label>
+                        <select>
+                            <option>Don't specify</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="profile-picture">
+                    <h3>Profile picture</h3>
+                    <div class="profile-pic">
+                        <img src="C:\Users\tessa\OneDrive\Documents\MDS\FSWD\social-icons\Profile Picture.svg" alt="Profile Picture">
+                        </div>
+                        
+                    <button class="btn-primary">Edit</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>URL</label>
+                <input type="url" class="form-control" placeholder="Enter URL" />
+            </div>
+            
+            <div class="form-group">
+                <label>Social accounts</label>
+                <div class="social-links">
+                    <div class="input-with-icon">
+                        <i class="icon">🔗</i>
+                        <input type="text" placeholder="Link to social profile" />
+                    </div>
+                    <div class="input-with-icon">
+                        <i class="icon">🔗</i>
+                        <input type="text" placeholder="Link to social profile" />
+                    </div>
+                    <div class="input-with-icon">
+                        <i class="icon">🔗</i>
+                        <input type="text" placeholder="Link to social profile" />
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Company</label>
+                <input type="text" placeholder="Company name" />
+                <p class="help-text">You can @mention your company's GitHub organization to link it.</p>
+            </div>
+            
+            <div class="form-group">
+                <label>Location</label>
+                <input type="text" placeholder="Location" />
+            </div>
+            
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="displayLocalTime" />
+                    <label for="displayLocalTime">Display current local time</label>
+                    <p class="help-text">Others will see what time it is for you when they visit your profile.</p>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button class="btn-primary1">Update profile</button>
+            </div>
+            
+            <div class="form-divider"></div>
+            
+            <div class="form-section">
+            
+                <h2>Contributions & Activity</h2>
+           
+                <div class="checkbox-group">
+                    <input type="checkbox" id="makeProfilePrivate" />
+                    <label for="makeProfilePrivate">Make profile private and hide activity</label>
+                    <p class="help-text">Your profile will tell you who can follow and see your GitHub profile and from social features like followers, stars, etc.</p>
+                </div>
+            
+                <div class="checkbox-group">
+                    <input type="checkbox" id="includePrivateContributions" />
+                    <label for="includePrivateContributions">Include private contributions on my profile</label>
+                    <p class="help-text">Your contribution graph and count will show your private contributions without revealing any organization information. <a href="#">Read more</a></p>
+                </div>
+                <button class="btn-primary">Update preferences</button>
+            </div>
+            
+            <div class="form-divider"></div>
+            
+            <div class="form-section">
+                <h3>Profile settings</h3>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="showAchievements" checked />
+                    <label for="showAchievements">Show Achievements on my profile</label>
+                    <p class="help-text">Your achievements will be shown on your profile</p>
+                </div>
+                <button class="btn-primary">Update preferences</button>
+            </div>
+            
+            <div class="form-divider"></div>
+            
+            <div class="form-section">
+                <h2>GitHub Developer Program</h2>
+                <p>Building an application or service that integrates with GitHub? Join the GitHub Developer Program! <a href="#">Read more about it on our Developer site</a>.</p>
+            </div>
+            
+            <div class="form-divider"></div>
+            
+            <div class="form-section">
+                <h2>Jobs profile</h2>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="availableForHire" />
+                    <label for="availableForHire">Available for hire</label>
+                    </div>
+                    <button class="btn-primary">Save jobs profile</button>
+                
+               
+            
+            <div class="form-divider"></div>
+            
+            <div class="form-section">
+                <h2>Trending settings</h2>
+                
+                <div class="form-group">
+                    <label>Preferred locations</label>
+                    <select>
+                        <option>No Preference</option>
+                    </select>
+                    
+                </div>
+
+                <div class="form-section">
+                    <p class="help-text" > We'll use this language preference  to filter trending repositories on our <a href="#">Explore</a> and our <a href="#">Trending Repositories</a> page</p>
+                    <button class="btn-primary">Save trending settings</button>
+                </div>
+
+                
+            </div>
+            
+            
+        </main>
+    </div>
+<!-- 
+    <div class="footer">
+        <ul>
+            <li>Terms</li>
+            <li>Privacy</li>
+            <li>Security</li>
+            <li>Status</li>
+            <li>Docs</li>
+            <li>Contact GitHub</li>
+            <li>Pricing</li>
+            <li>API</li>
+            <li>Training</li>
+            <li>Blog</li>
+            <li>About</li>
+          </ul>
+        </div> -->
+</body>
+</html>

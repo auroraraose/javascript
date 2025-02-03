@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script src="index.js"></script> -->
+    <script>
+        const p = setTimeout(() => { console.log(100)},3000);
+        async function callMe(para){
+            const myPromise = new Promise((response, reject) =>{
+                const success=true; 
+                    if(success){
+                        response( setTimeout(() => { console.log(`Success :` + 111)},3000));
+                }
+                else{
+                    reject("failed");
+                }
+    
+            });
+            const res = await myPromise;
+            console.log(res);
+        }
+        callMe(p);
+    </script>
+</body>
+</html>
