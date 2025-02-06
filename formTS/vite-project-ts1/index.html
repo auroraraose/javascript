@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="src/main.ts"></script>
+    <script type="module" src="src/counter.ts"></script>
+</head>
+<body>
+    <button id="showForm">Show Form</button>
+    <button id="showTable">Show Table</button>
+    <button id="showChart">Show Chart</button>
+
+    <!-- Student Form -->
+    <div id="formContainer" style="display: none;">
+        <h2>Add / Edit Student</h2>
+        <form id="studentForm">
+            <input type="hidden" id="studentId">
+            <label>Name: <input type="text" id="name" required></label><br>
+            <label>Age: <input type="number" id="age" required></label><br>
+            <label>Grade: <input type="text" id="grade" required></label><br>
+            <label>Marks: <input type="number" id="marks" required></label><br>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+
+    <!-- Student Table -->
+    <div id="tableContainer">
+        <h2>Student List</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Grade</th>
+                    <th>Marks</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="studentTable"></tbody>
+        </table>
+    </div>
+
+    <!-- Chart Container -->
+    <div id="chartContainer" style="display: none;">
+        <h2>Student Marks Chart</h2>
+        <canvas id="marksChart"></canvas>
+    </div>
+</body>
+</html>
